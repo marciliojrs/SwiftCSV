@@ -105,7 +105,7 @@ public class CSV {
     public func toString(del:String = ",") -> String{
         var string = ""
         let headersCount = self.headers.count
-        for (i, header) in enumerate(self.headers){
+        for (i, header) in self.headers.enumerate(){
             if i < headersCount - 1 && headersCount != 1 {
                 string += "\(header)\(del)"
             }else{
@@ -113,8 +113,8 @@ public class CSV {
             }
         }
         string += "\n"
-        for (i, row) in enumerate(self.rows) {
-            for (j, header) in enumerate(self.headers) {
+        for (_, row) in self.rows.enumerate() {
+            for (j, header) in self.headers.enumerate() {
                 var value = row[header]
                 if value == nil {
                     value = ""
